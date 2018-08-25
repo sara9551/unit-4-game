@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     $("#random-button").on("click", function () {
 
-        var randoNumber = "";
+    var randoNumber = "";
         for (var i = 0; i < 1; i++) {
             var random = Math.floor(Math.random() * 50) + 1;
 
@@ -11,8 +11,11 @@ $(document).ready(function () {
         $("#random-number").text(randoNumber);
     });
 
+    var randoNumber = "";
     var counter = 0;
     var numberOptions = [10, 5, 3, 7, 8, 21, 11, 4, 9];
+    var wins = 0
+    var loses = 0
 
     for (var i = 0; i < numberOptions.length; i++) {
 
@@ -45,11 +48,11 @@ $(document).ready(function () {
         alert("New score: " + counter);
 
         if (counter === randoNumber) {
-            alert("You win!");
+            $("h4").append("You win");
         }
 
         else if (counter >= randoNumber) {
-            alert("You lose!!");
+            $("h4").append("You loose");
         }
     });
 })
