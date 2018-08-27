@@ -1,4 +1,4 @@
-var randomNumber = Math.floor(Math.random() * 102) + 19;
+var randomNumber = Math.floor(Math.random() * 80) + 19;
 var pinkCrystal = Math.floor(Math.random() * 13) + 1;
 var blueCrystal = Math.floor(Math.random() * 13) + 1;
 var greenCrystal = Math.floor(Math.random() * 13) + 1;
@@ -14,11 +14,10 @@ $(document).ready(function () {
         var randoNumber = "";
         for (var i = 0; i < 1; i++) {
 
-            var randomNumber = Math.floor(Math.random() * 102) + 19;
-
             randoNumber = randomNumber + randoNumber;
         }
         $("#random-number").text(randoNumber);
+        
     });
 
     $("#pink").on("click", function () {
@@ -26,6 +25,8 @@ $(document).ready(function () {
         $("h5").text(player);
 
         console.log("User Score: " + player);
+
+        winOrLoose();
 
     });
 
@@ -35,6 +36,8 @@ $(document).ready(function () {
 
         console.log("User Score: " + player);
 
+        winOrLoose();
+        
     });
 
     $("#green").on("click", function () {
@@ -42,23 +45,24 @@ $(document).ready(function () {
         $("h5").text(player);
 
         console.log("User Score: " + player);
-
+        
+        winOrLoose();
     });
 
-    $("img").on("click", function () {
-        crystalValue = parseInt(crystalValue);
+    function winOrLoose() {
 
         if (player === randomNumber) {
             $("h4").text("You win!!!!");
+            win++;
         }
 
         else if (player >= randomNumber) {
             $("h4").text("You loose!!!!!");
         }
-    });
+    };
 });
 
-// not workinggg!! helppppppp
+/////// not workinggg!! helppppppp ///////
 $("#btn btn-primary").click(function() {
     location.reload();
 });
